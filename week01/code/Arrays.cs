@@ -50,6 +50,9 @@ public static class Arrays
 
         amount %= data.Count;
 
+        if (amount == 0)
+            return;
+
         for (int i = 0; i < amount; i++)
         {
 
