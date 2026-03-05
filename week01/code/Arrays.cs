@@ -41,22 +41,25 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        //   1. Loop through the  List and save the last element
-        //   2. Create and inner for loop and shift all other elements one position to the right
-        //   3. Put the saved element at the front
+        // 1. Use modulo (%) to ensure  we only iterate the necessary number of times, even if the amount is larger than the list size
+        //  2. If amount is  zero return
+        //  3. Loop through the  List and save the last element
+        //  4. Create and inner for loop and shift all other elements one position to the right
+        //  5. Put the last element at the begining
+        //  
+
+        amount %= data.Count;
 
         for (int i = 0; i < amount; i++)
         {
-            // 1: Save the last element and it will moved to the front
+
             int lastElement = data[data.Count - 1];
 
-            // Step 2: Shift all elements one position to the right and start from the end and move backwards.
             for (int j = data.Count - 1; j > 0; j--)
             {
                 data[j] = data[j - 1];
             }
 
-            // Step 3: Place the saved last element at the beginning
             data[0] = lastElement;
         }
 
