@@ -13,7 +13,18 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // 1. Create an Array of size length
+        // 2. Loop through the Array and multiply every element by the index and append product to array
+        // 3. Return the Array 
+
+        var doublesList = new double[length];
+
+        for (var i = 0; i < length; i++)
+        {
+            doublesList[i] = number * (i + 1);
+        }
+
+        return doublesList;
     }
 
     /// <summary>
@@ -29,5 +40,26 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //   1. Loop through the  List and save the last element
+        //   2. Create and inner for loop and shift all other elements one position to the right
+        //   3. Put the saved element at the front
+
+        for (int i = 0; i < amount; i++)
+        {
+            // 1: Save the last element and it will moved to the front
+            int lastElement = data[data.Count - 1];
+
+            // Step 2: Shift all elements one position to the right and start from the end and move backwards.
+            for (int j = data.Count - 1; j > 0; j--)
+            {
+                data[j] = data[j - 1];
+            }
+
+            // Step 3: Place the saved last element at the beginning
+            data[0] = lastElement;
+        }
+
+
     }
 }
