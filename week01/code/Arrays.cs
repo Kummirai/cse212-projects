@@ -13,9 +13,9 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        // 1. Create an Array of size length
-        // 2. Loop through the Array and multiply every element by the index and append product to array
-        // 3. Return the Array 
+        // 1. Create an Array of size length.
+        // 2. Loop through the Array and multiply every element by the index and append product to array.
+        // 3. Return the Array.
 
         var doublesList = new double[length];
 
@@ -41,11 +41,11 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        // 1. Use modulo (%) to ensure  we only iterate the necessary number of times, even if the amount is larger than the list size
-        //  2. If amount is  zero return
-        //  3. Loop through the  List and save the last element
+        // 1. Use modulo (%) to ensure we only iterate the necessary number of times, even if the amount is larger than the list size.
+        //  2. If amount is  zero return.
+        //  3. Loop through the  List and save the last element.
         //  4. Create and inner for loop and shift all other elements one position to the right
-        //  5. Put the last element at the begining
+        //  5. Put the last element at the begining.
         //  
 
         amount %= data.Count;
