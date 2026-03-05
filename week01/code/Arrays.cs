@@ -8,11 +8,6 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
-
         // 1. Create an Array of size length.
         // 2. Loop through the Array and multiply every element by the index and append product to array.
         // 3. Return the Array.
@@ -36,17 +31,11 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
-
         // 1. Use modulo (%) to ensure we only iterate the necessary number of times, even if the amount is larger than the list size.
         //  2. If amount is  zero return.
         //  3. Loop through the  List and save the last element.
         //  4. Create and inner for loop and shift all other elements one position to the right
         //  5. Put the last element at the begining.
-        //  
 
         amount %= data.Count;
 
@@ -65,7 +54,6 @@ public static class Arrays
 
             data[0] = lastElement;
         }
-
 
     }
 }
