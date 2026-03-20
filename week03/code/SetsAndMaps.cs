@@ -23,7 +23,7 @@ public static class SetsAndMaps
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
         //1. Create a HashSet to store the words we have seen so far
-        //2. Create a list to store the pairs pairs
+        //2. Create a list to store the pairs we find.
         //3. Iterate through each word in the input array and Reverse the current word and Check if the reversed word exists in the HashSet
         // 4. If it does, add the pair to the pairs list in a consistent order (e.g., "am & ma") andIf it does not, add the current word to the HashSet
 
@@ -58,11 +58,30 @@ public static class SetsAndMaps
     /// <returns>fixed array of divisors</returns>
     public static Dictionary<string, int> SummarizeDegrees(string filename)
     {
+
+        // TODO Problem 2 - ADD YOUR CODE HERE
+        //1. Create a dictionary to store the degree counts.
+        //2. Read the file line by line and split each line into fields using the comma as a delimiter.
+        //3. For each line, check if there are at least 4 fields to ensure the degree information is present. If so, extract the degree from the 4th field.
+        //4. Update the count for that degree in the dictionary. If the degree is already a key in the dictionary, increment its count. If not, add it to the dictionary with a count of 1.
+
         var degrees = new Dictionary<string, int>();
         foreach (var line in File.ReadLines(filename))
         {
             var fields = line.Split(",");
-            // TODO Problem 2 - ADD YOUR CODE HERE
+
+            if (fields.Length > 3)
+            {
+                string degree = fields[3];
+                if (degrees.ContainsKey(degree))
+                {
+                    degrees[degree]++;
+                }
+                else
+                {
+                    degrees[degree] = 1;
+                }
+            }
         }
 
         return degrees;
@@ -87,7 +106,52 @@ public static class SetsAndMaps
     public static bool IsAnagram(string word1, string word2)
     {
         // TODO Problem 3 - ADD YOUR CODE HERE
-        return false;
+
+        //1. Normalize the input words by removing spaces and converting them to lower case.
+        //2. Check if the lengths of the normalized words are different. If they are,
+        //   return false immediately since they cannot be anagrams.
+        //3. Create a dictionary to count the occurrences of each character in the first word.
+        //4. Iterate through the characters of the first word and update the counts in the dictionary.
+        //5. Iterate through the characters of the second word and decrement the counts in the dictionary. If a character is not found or if any count becomes negative, return false.
+        //6. If all counts are zero at the end, return true.
+
+        word1 = word1.Replace(" ", "").ToLower();
+        word2 = word2.Replace(" ", "").ToLower();
+
+        if (word1.Length != word2.Length)
+        {
+            return false;
+        }
+
+        Dictionary<char, int> count = new Dictionary<char, int>();
+
+        foreach (char c in word1)
+        {
+            if (count.ContainsKey(c))
+            {
+                count[c]++;
+            }
+            else
+            {
+                count[c] = 1;
+            }
+        }
+
+        foreach (char c in word2)
+        {
+            if (!count.ContainsKey(c))
+            {
+                return false;
+            }
+
+            count[c]--;
+
+            if (count[c] < 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>
