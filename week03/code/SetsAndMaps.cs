@@ -22,9 +22,29 @@ public static class SetsAndMaps
     public static string[] FindPairs(string[] words)
     {
         // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
-    }
+        //1. Create a HashSet to store the words we have seen so far
+        //2. Create a list to store the pairs pairs
+        //3. Iterate through each word in the input array and Reverse the current word and Check if the reversed word exists in the HashSet
+        // 4. If it does, add the pair to the pairs list in a consistent order (e.g., "am & ma") andIf it does not, add the current word to the HashSet
 
+        HashSet<string> seenWords = new HashSet<string>();
+        List<string> pairs = new List<string>();
+
+        foreach (var word in words)
+        {
+            var reversedWord = new string(word.Reverse().ToArray());
+            if (seenWords.Contains(reversedWord))
+            {
+                pairs.Add($"{reversedWord} & {word}");
+            }
+            else
+            {
+                seenWords.Add(word);
+            }
+        }
+
+        return pairs.ToArray();
+    }
     /// <summary>
     /// Read a census file and summarize the degrees (education)
     /// earned by those contained in the file.  The summary
