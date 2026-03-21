@@ -23,14 +23,14 @@
         }
 
         var highPriorityIndex = 0;
-        for (int index = 1; index < _queue.Count; index++) // Fixed: was Count - 1, skipping last item
+        for (int index = 1; index < _queue.Count; index++)
         {
-            if (_queue[index].Priority > _queue[highPriorityIndex].Priority) // Fixed: was >= which broke FIFO tiebreaking
+            if (_queue[index].Priority > _queue[highPriorityIndex].Priority)
                 highPriorityIndex = index;
         }
 
         var value = _queue[highPriorityIndex].Value;
-        _queue.RemoveAt(highPriorityIndex); // Fixed: item was never removed from the queue
+        _queue.RemoveAt(highPriorityIndex);
         return value;
     }
 
