@@ -11,7 +11,9 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3) and
     // run until the queue is empty
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: 
+    // Defect(s) Found:  Assert.AreEqual failed. Expected:<Bob>. Actual:<Sue>. 
+    //  PersonQueue.Enqueue(). is using _queue.Insert(0, person) which inserts at index 0 — the front of the list. So instead of a FIFO queue where new people join the back, everyone was jumping to the front.
+
     public void TestTakingTurnsQueue_FiniteRepetition()
     {
         var bob = new Person("Bob", 2);
